@@ -54,7 +54,7 @@ function managetimefunc(){
         showSec.innerHTML=Strsec;
         showMin.innerHTML=Strmin;
         ShowHr.innerHTML=Strhr;
-        setTimeout("managetimefunc()",100)
+        setTimeout("managetimefunc()",1000)
     }
 
 }
