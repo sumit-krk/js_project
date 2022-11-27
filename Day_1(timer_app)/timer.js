@@ -16,6 +16,9 @@ function Stop(){
 
 function Reset(){
     manageTime=false;
+    hr=0;
+    min=0;
+    sec=0;
     showSec.innerHTML='00';
     showMin.innerHTML='00';
     ShowHr.innerHTML='00'; 
@@ -34,14 +37,23 @@ function managetimefunc(){
             sec=0;
         }
 
-        
+        let Strhr=hr;
+        let Strmin=min;
+        let Strsec=sec;
+ 
         if(sec<10){
-            sec="0"+sec
+            Strsec="0"+Strsec
+        }
+        if(min<10){
+            Strmin="0"+Strmin
+        }
+        if(hr<10){
+            Strhr="0"+Strhr  
         }
 
-        showSec.innerHTML=sec;
-        showMin.innerHTML=min;
-        ShowHr.innerHTML=hr;
+        showSec.innerHTML=Strsec;
+        showMin.innerHTML=Strmin;
+        ShowHr.innerHTML=Strhr;
         setTimeout("managetimefunc()",100)
     }
 
