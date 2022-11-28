@@ -1,0 +1,40 @@
+*{
+    margin: 0px;
+}
+.mainContainer>div{
+    /* border: 1px solid red; */
+    position: relative;
+}
+
+.mainContainer>div>img{
+    width: 100%;
+    height: 300px;
+}
+
+.mainContainer>div>h1{
+    position: absolute;
+    bottom: 10px;
+    color: greenyellow;
+    /* text-align: center; */
+    right: 50%;
+    /* align-items: center; */
+}
+.arrow{
+    position: relative;
+}
+.arrow>div{
+    border: 1px solid red;
+    width: 40px;
+    border-radius: 5px;
+    text-align: center;
+    position: absolute;
+    bottom: 150px;
+    color: white;
+    cursor: pointer;
+}
+.arrow>div:hover{
+    color: green;
+}
+.back{
+    right: 0px;
+}
