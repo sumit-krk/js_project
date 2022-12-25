@@ -5,13 +5,17 @@
 //     },2000)
 // })
 
+// note:- reject("Task Rejected") or 
+// throw new Error("data issue") // both will work same
+
 // data.then((item)=>{
 //     console.log(item)
 // }).catch((item)=>{
 //     console.log(item)
 // })
-
 // console.log("Hello");
+
+/********************************************************************************************************************/
 
 // how to handle promise in api.
 let data = fetch("https://jsonplaceholder.typicode.com/todos/1");
@@ -20,3 +24,32 @@ data.then((res)=>{
 }).then((result)=>{ // promise chaning
     console.log(result);
 })
+
+/*****************************************************************************************************************/
+async function A1() {
+  let data = await fetch("https://fakestoreapi.com/products").then((data) =>
+    data.json()
+  );
+  data = await data;
+  console.log("first function calli");
+  console.log(data);
+  return data;
+}
+async function A2() {
+  let data = await fetch("https://fakestoreapi.com/products/1").then((data) =>
+    data.json()
+  );
+  data = await data;
+  console.log("second function call");
+  console.log(data);
+  return data;
+}
+async function print(){
+    let data_1=await A1();
+    console.log("after_fiest");
+    let data_2=await A2();
+    console.log("After_second");
+    console.log(data_1,data_2);
+    console.log("end")
+}
+print();
