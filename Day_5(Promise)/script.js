@@ -53,3 +53,23 @@ async function print(){
     console.log("end")
 }
 print();
+
+/****************************************************************************************************************/
+let a=20;
+let b=0;
+async function demo(){
+    let data=new Promise((res,rej)=>{
+  setTimeout(()=>{
+      res(30);
+  },2000) 
+})
+b=await data;
+console.log(a+b);
+console.log("first function went");
+}
+
+async function print(){
+    await demo();
+    console.log("hi");
+}
+print();
