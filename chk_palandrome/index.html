@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .plane{
+            width: 240px;
+            margin: auto;
+        }
+        input[type="text"]{
+            border: 1px solid blue;
+            height: 20px;
+        }
+        input[type="submit"]{
+            padding: 4px;
+            background-color: brown;
+            color: white;
+            border: none;
+        }
+        input[type="submit"]:focus{
+            color: greenyellow;
+        }
+        input[type="submit"]:hover{
+            background-color: rgb(57, 219, 65);
+            color: white;
+            cursor: pointer;
+        }
+        #showResult{
+            color: blue;
+            font-size: 15px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+   <div class="plane">
+    <input id="input_plan" onkeyup="HandleChange()" type="text">
+    <input type="submit">
+    <div id="showResult"></div>
+   </div>
+</body>
+<script>
+    function HandleChange(){
+        const plan=document.getElementById("input_plan").value;
+        const result=document.getElementById("showResult");
+        if(plan==plan.split("").reverse().join("")){
+            result.innerText="Yes Plandrome"
+        }
+        else if(plan.length==0){
+            result.innerText=""
+        }
+        else{
+            result.innerText="Not Plandrome"
+        }
+    }
+</script>
+</html>
