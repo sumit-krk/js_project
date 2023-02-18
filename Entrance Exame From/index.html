@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body> 
+    <form action="" onsubmit="ClickSubmit()">
+        <h3>Entrance Exame Form</h3>
+        <table>
+            <tr>
+                <td>
+                    <label for="">Name of Candidate</label>
+                </td>
+                <td>
+                    <input type="text" id="candidateName" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="candidateEmail">Email</label>
+                </td>
+                <td>
+                    <input type="email" id="candidateEmail" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="mobileNumber">Mobile Number</label>
+                </td>
+                <td>
+                    <input type="number" id="candidateMobileNumber" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="age">Age</label>
+                </td>
+                <td>
+                    <input type="number" id="candidateAge" />
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="Submit" />
+    </form>
+</body>
+<script>
+    function allLetter(inputtxt) {
+        let newText = inputtxt.split(" ").join("");
+        let matchingText = /^[A-Za-z]+$/;
+        if (newText.match(matchingText)) {
+            return true;
+        } else {
+            alert("Name onlt contains alphabet");
+            return false;
+        }
+    }
+
+    function ValidateEmail(inputText) {
+        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if (inputText.match(mailformat)) {
+            return true;
+        } else {
+            alert("You have entered an invalid email address!");
+            return false;
+        }
+    }
+
+    function ValidateMobileNumber() {
+        var mobileNumber = document.getElementById("candidateMobileNumber").value;
+        var expr = /^(0|91)?[6-9][0-9]{9}$/;
+        if (!expr.test(mobileNumber)) {
+            alert("Invalid mobile number")
+        }
+    }
+
+    function ValidateAge(age){
+        if(age>30){
+            alert("Age should be les then 30");
+        }
+    }
+    function ClickSubmit() {
+        event.preventDefault();
+        let name = document.getElementById("candidateName").value;
+        allLetter(name);
+        let mail = document.getElementById("candidateEmail").value;
+        ValidateEmail(mail)
+        ValidateMobileNumber()
+        let age = document.getElementById("candidateAge").value;
+        ValidateAge(age);
+    }
+</script>
+
+</html>
