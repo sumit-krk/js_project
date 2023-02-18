@@ -29,7 +29,7 @@
 .inner_div input{
     cursor: pointer;
 }
-#submit{
+#submit,#skip{
     padding: 0.5rem 1.5rem;
     outline: none;
     font-size: 1rem;
@@ -46,4 +46,16 @@
 }
 #submit:hover{
     background-color: teal;
+}
+.inner_adjecent_div{
+    width: 40vw;
+    background-color: white;
+    padding: 1.6rem 5rem;
+    border-radius: 1rem;
+    box-shadow: 0 0.8rem 0.8rem -0.5rem rgba(0,0,0,0.4);
+    display: none;
+}
+.completed{
+    display: flex;
+    justify-content: center;
 }
