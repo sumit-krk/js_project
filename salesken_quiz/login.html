@@ -15,20 +15,46 @@
             <div>
                 <form action="">
                     <div>
-                        <input type="email" placeholder="Enter your mail">
+                        <input id="email" type="email" placeholder="Enter your mail">
                     </div>
                     <div>
-                        <input type="password" placeholder="Enter your password">
+                        <input id="password" type="password" placeholder="Enter your password">
                     </div>
                 </form>
             </div>
             <div>
-                <button>Login</button>
+                <button onclick="handle_login()">Login</button>
+            </div>
+            <div id="message">
+
             </div>
         </div>
     </div>
 </body>
 </html>
+<script>
+    const handle_login=()=>{
+        const email=document.getElementById("email").value;
+        const password=document.getElementById("password").value;
+        const message=document.getElementById("message");
+        const data=JSON.parse(localStorage.getItem("UserInfo"))
+        let check=0;
+        for(let i=0;i<data.length;i++){
+          if(data[i].email==email && data[i].password==password){
+            check=1;
+            break;
+          }  
+        }
+        console.log("check",check)
+        if(check==1){
+            localStorage.setItem("Login",1)
+            message.innerText='Login success'
+        }
+        else{
+            message.innerText='Wrong Crenditals'
+        }
+    }
+</script>
 <script type="module">
     import navbar from "./component/navbar.js";
     document.getElementById("top").innerHTML=navbar('signUp');
