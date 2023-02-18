@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./index.css">
-    <!-- <script src="./index.js"></script> -->
+    <script src="./index.js"></script>
     <title>Document</title>
 </head>
-<body>
+<body onload="onbody_load()">
     <div id="top"> </div>
     <div>
         <button onclick="click_start()" class="start_quiz">Start Quiz</button>
@@ -21,9 +21,12 @@
 <script>
     const start=document.getElementById("start");
     const click_start=()=>{
-        const loginData=localStorage.getItem("Login")
-        if(loginData!=1){
+        const loginData=JSON.parse(localStorage.getItem("login"))
+        if(loginData.status!=1){
             start.innerText="Login Please....";
+        }
+        else if(loginData.status==1){
+            window.location.href = "./quiz.html"
         }
     }
 </script>
