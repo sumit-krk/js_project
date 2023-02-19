@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="./quiz.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="./quiz.js"></script>
     <title>Quiz App</title>
 </head>
-<body>
+<body onload="question_load()">
     <div id="top"> </div>
     <div class="main_div">
         <!-- Question and answer popup -->
@@ -16,32 +18,37 @@
             <h2 class="question">Question comes here</h2>
             <ul>
                 <li>
-                    <input type="radio" name="answer" id="ans1" class="answer">
+                    <input type="radio" name="answer" id="ans1" class="answer" >
                     <label for="ans1" id="option1">Answer</label>
                 </li>
 
                 <li>
-                    <input type="radio" name="answer" id="ans1" class="answer">
-                    <label for="ans1" id="option1">Answer</label>
+                    <input type="radio" name="answer" id="ans2" class="answer">
+                    <label for="ans2" id="option2">Answer</label>
                 </li>
 
                 <li>
-                    <input type="radio" name="answer" id="ans1" class="answer">
-                    <label for="ans1" id="option1">Answer</label>
+                    <input type="radio" name="answer" id="ans3" class="answer">
+                    <label for="ans3" id="option3">Answer</label>
                 </li>
 
                 <li>
-                    <input type="radio" name="answer" id="ans1" class="answer">
-                    <label for="ans1" id="option1">Answer</label>
+                    <input type="radio" name="answer" id="ans4" class="answer">
+                    <label for="ans4" id="option4">Answer</label>
                 </li>
             </ul>
-            <button id="submit">submit</button>
+            <button id="skip">SKIP</button>
+        </div>
+        <div class="inner_adjecent_div">
+            <h2 class="completed">Quiz Completed</h2>
+            <button id="result">SEE YOUR RESULT</button>
         </div>
     </div>
 </body>
 </html>
 
+<!-- navbar -->
 <script type="module">
     import navbar from "./component/navbar.js";
-    document.getElementById("top").innerHTML=navbar('sumit');
+    document.getElementById("top").innerHTML=navbar();
 </script>
