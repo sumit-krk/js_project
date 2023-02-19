@@ -1,9 +1,9 @@
 let question_data;
 // loading data from localStorage
 const question_load=async()=>{
+    await localStorage.removeItem('final_result');
     question_data=await JSON.parse(localStorage.getItem("question"));
     waiting_for_data();
-    console.log(question_data);
 }
 
 // wating for data until data comes from local storage
@@ -48,7 +48,6 @@ const waiting_for_data = () => {
         }
     }
     store_result.push(data);
-    console.log(question_count)
     if(question_count==9){
         const remove_area=document.querySelector('.inner_div');
         remove_area.remove();
@@ -58,7 +57,9 @@ const waiting_for_data = () => {
     }
     question_count++;
     current_question();
-    deSelect()
+    setTimeout(()=>{
+        deSelect()
+    },100)
   }
 
 
@@ -86,14 +87,14 @@ const waiting_for_data = () => {
     data={
         answer:"skip"
     }
-    if(question_count==9){
+    if(question_count==10){
         const remove_area=document.querySelector('.inner_div');
         remove_area.remove();
         document.querySelector(".inner_adjecent_div").style.display = "block";
-        console.log("result",store_result)
+        localStorage.setItem("final_result",JSON.stringify(store_result))
     }
-    store_result.push(data);
     question_count++;
+    store_result.push(data);
     current_question();
   }
 
@@ -102,6 +103,16 @@ const waiting_for_data = () => {
   }
 
   deSelect();
+  
+//logout functionlity
+  const logOut=()=>{
+    let value=confirm("Are you sure want to log out");
+    if(value==true){
+        localStorage.removeItem('login');
+        window.location.href = "./index.html"
+    }
+  }
+
 
 //   handling after user clicked on any answer
   document.getElementById("ans1").addEventListener("click",handle_Radio);
@@ -109,5 +120,6 @@ const waiting_for_data = () => {
   document.getElementById("ans3").addEventListener("click",handle_Radio);
   document.getElementById("ans4").addEventListener("click",handle_Radio);
   document.getElementById("result").addEventListener("click",See_result);
+  document.getElementById("logout").addEventListener("click",logOut)
   skip.addEventListener('click',handle_skip)
 };
