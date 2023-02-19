@@ -5,30 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="./index.js"></script>
     <title>Document</title>
 </head>
 <body onload="onbody_load()">
     <div id="top"> </div>
-    <div>
+    <div class="main_body">
+        <!-- click here to start the quiz -->
         <button onclick="click_start()" class="start_quiz">Start Quiz</button>
-    </div>
-    <div id="start">
-
+        <div id="start"></div>
+        <div class="instruction">
+            <h2>Instruction</h2>
+            <h4>1: Before starting the quiz user should be login.</h4>
+            <h4>2: If you have no login id then sign up first.</h4>
+            <h4>3: After login, you can start the quiz by just clicking on the start button. </h4>
+            <h4>4: In this quiz, there will be 10 MCQ questions.</h4>
+            <h4>5: After answering all questions you can see your scorecard.</h4>
+        </div>
     </div>
 </body>
 </html>
 <script>
     const start=document.getElementById("start");
+    // checking user login or not before start the quiz
+
     const click_start=()=>{
         const loginData=JSON.parse(localStorage.getItem("login"))
-        if(loginData.status!=1){
+        if(loginData==undefined || loginData.status!=1){
             start.innerText="Login Please....";
         }
         else if(loginData.status==1){
             window.location.href = "./quiz.html"
         }
     }
+
 </script>
 <script type="module">
     import navbar from "./component/navbar.js";
