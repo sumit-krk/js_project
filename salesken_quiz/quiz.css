@@ -44,6 +44,15 @@
     cursor: pointer;
     border-radius: 5px;
 }
+#start_again:hover{
+    background-color: teal;
+}
+#skip:hover{
+    background-color: teal;
+}
+#result:hover{
+    background-color: teal;
+}
 #submit:hover{
     background-color: teal;
 }
@@ -64,4 +73,8 @@
     display: flex;
     justify-content: space-between;
     cursor: pointer;
+}
+.warning{
+    color: red;
+    margin-top: 5px;
 }
