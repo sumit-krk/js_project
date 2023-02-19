@@ -68,8 +68,9 @@ a{
 #start{
     display: flex;
     justify-content: center;
-    color: red;
+    color: rgb(20, 34, 233);
     font-weight: bold;
+    margin-top: 10px;
 }
 .handle_icon{
     color: white;
