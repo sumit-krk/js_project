@@ -53,9 +53,15 @@
     skip_question.innerText=skip;
 
     const start_again=()=>{
-        localStorage.removeItem('final_result');
         window.location.href = "./quiz.html"
     }
+
+    const logOut=()=>{
+    let value=confirm("Are you sure want to log out");
+    if(value==true){
+        localStorage.removeItem('login');
+        window.location.href = "./index.html"
+    }}
 </script>
 
 <!-- navbar -->
