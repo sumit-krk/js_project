@@ -29,7 +29,7 @@
 .inner_div input{
     cursor: pointer;
 }
-#submit,#skip{
+#result,#skip,#start_again{
     padding: 0.5rem 1.5rem;
     outline: none;
     font-size: 1rem;
@@ -58,4 +58,10 @@
 .completed{
     display: flex;
     justify-content: center;
+}
+.handle_icon{
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
 }
