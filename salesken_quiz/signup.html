@@ -5,12 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./index.css">
-    <title>Login Page</title>
+    <title>signup Page</title>
 </head>
 <body>
     <div id="top"> </div>
     <div class="login-page">
         <div class="login">
+            <!-- signup page -->
             <div>Signup</div>
             <div>
                 <form action="">
@@ -31,21 +32,46 @@
             <div>
                 <button onclick="handle_signup()">Sugnup</button>
             </div>
+            <div id="message"></div>
         </div>
     </div>
 </body>
 </html>
 <script>
+    // handleing signup functionlity
     const handle_signup=()=>{
         const name=document.getElementById("name").value;
         const age=document.getElementById("age").value;
         const email=document.getElementById("email").value;
+        const message=document.getElementById("message");
         const password=document.getElementById("password").value;
+
+        //handling validation
+        if(email.length==0 || password.length==0 || name.length==0 || age.length==0){
+            message.innerText='Invalid Input';
+            return;
+        }
+        else{
+            message.innerText='Singup successfully';
+        }
+        alert("account created")
         const data=JSON.parse(localStorage.getItem("UserInfo"))
-        localStorage.setItem("UserInfo",JSON.stringify([...data,{name,age,email,password}]))
-        console.log("data",data);
+
+        // after click on signup data storing in localStorage
+        if(data==undefined || data.length==0){
+            localStorage.setItem("UserInfo",JSON.stringify([{name,age,email,password}]))  
+        }
+        else{
+            localStorage.setItem("UserInfo",JSON.stringify([...data,{name,age,email,password}]))
+        } 
+
+        setTimeout(()=>{
+             window.location.href = "./login.html";
+        },1000)
     }
 </script>
+
+<!-- navbar -->
 <script type="module">
     import navbar from "./component/navbar.js";
     document.getElementById("top").innerHTML=navbar('login');
