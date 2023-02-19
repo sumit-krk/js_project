@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./quiz.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="./quiz.js"></script>
+    <title>Quiz App</title>
+</head>
+<body onload="question_load()">
+    <div id="top"> </div>
+    <div class="main_div">
+        <!-- handling final result -->
+        <div class="final_result">
+            <h2 class="completed">Final Result</h2>
+            <h3>Total Score : <span id="total_score"></span></h3> 
+            <h3>Right Answer : <span id="Right_answer"></span></h3>
+            <h3>Wrong Answer : <span id="Wrong_answer"></span></h3>
+            <h3>Question Skiped : <span id="question_skiped"></span></h3>
+            <button id="start_again" onclick="start_again()">START AGAIN</button>
+        </div>
+    </div>
+</body>
+</html>
+
+<!-- handling final result -->
+<script>
+    const Total_score=document.getElementById("total_score");
+    const right_answer=document.getElementById("Right_answer");
+    const wrong_answer=document.getElementById("Wrong_answer");
+    const skip_question=document.getElementById("question_skiped");
+    const data=JSON.parse(localStorage.getItem("final_result"))
+    let right=0;
+    let wrong=0;
+    let skip=0;
+    for(let i=0;i<data.length;i++){
+        if(data[i].answer=="correct"){
+            right++
+        }
+        else if(data[i].answer=="incorrect"){
+            wrong++
+        }
+        else if(data[i].answer=="skip"){
+            skip++;
+        }
+    }   
+    Total_score.innerText=`${right}/${data.length}`;
+    right_answer.innerText=right;
+    wrong_answer.innerText=wrong;
+    skip_question.innerText=skip;
+
+    const start_again=()=>{
+        localStorage.removeItem('final_result');
+        window.location.href = "./quiz.html"
+    }
+</script>
+
+<!-- navbar -->
+<script type="module">
+    import navbar from "./component/navbar.js";
+    document.getElementById("top").innerHTML=navbar();
+</script>
