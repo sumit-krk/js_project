@@ -15,3 +15,45 @@ add(1,2,3,4,5)
 const arr=[1,2,3,4,5]
 
 const arr2=[...arr]
+
+for(var i=0;i<5;i++){
+    function colose(i){
+        setTimeout(()=>{
+            console.log(i)
+        },1000)
+    }
+    colose(i)
+}
+
+
+const a = [
+    {
+        detail:{
+            order:1
+        }
+    },
+    {
+        detail:{
+            order:2
+        }
+    },
+    {
+        detail:{
+            order:3
+        }
+    },
+    {
+        detail:{
+            order:4
+        }
+    }
+]
+const b=3
+function remove(b){
+let dummy=a.filter((e)=>{
+  return e.detail.order!=b  
+})
+return dummy 
+}
+
+console.log(remove(b))
